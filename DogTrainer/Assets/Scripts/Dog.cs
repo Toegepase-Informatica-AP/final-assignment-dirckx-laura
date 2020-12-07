@@ -28,11 +28,13 @@ public class Dog : Agent
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {
-        if (vectorAction[0] == 0 & vectorAction[1] == 0)
+        //bij stilstaan afstraffen, nog niet zeker of dit nodig is
+        /*if (vectorAction[0] == 0 & vectorAction[1] == 0)
         {
-            AddReward(-0.001f);
+            
+            //AddReward(-0.001f);
             return;
-        }
+        }*/
 
         if (vectorAction[0] != 0)
         {
