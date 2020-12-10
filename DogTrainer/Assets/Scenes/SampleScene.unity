@@ -121,6 +121,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &357468463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3010287877878848335, guid: 25e344ab284e1bf43abf2870e79725fe,
+    type: 3}
+  m_PrefabInstance: {fileID: 5028794419012910299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &357468472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357468463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 4
+  TakeActionsBetweenDecisions: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +424,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1008686550292021342, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008686550292021342, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_BehaviorType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008686550292021342, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008686550292021342, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008686550292021342, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_BehaviorName
+      value: Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008686550292021342, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1396547423230684495, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,6 +513,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151608039638716722, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529060600958525790, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: MaxStep
+      value: 5000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e344ab284e1bf43abf2870e79725fe, type: 3}
