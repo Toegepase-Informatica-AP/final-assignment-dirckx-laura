@@ -7,6 +7,7 @@ using Unity.MLAgents;
 
 public class Dog : Agent
 {
+    private Spawner spawner;
     private Rigidbody body;
     public float speed = 10;
     public float rotationSpeed = 350;
@@ -17,10 +18,14 @@ public class Dog : Agent
     {
         base.Initialize();
         body = GetComponent<Rigidbody>();
+        spawner = GetComponentInParent<Spawner>();
+        //spawner.SpawnBall();
     }
 
     public override void OnEpisodeBegin()
     {
+        spawner.ClearEnvironment();
+        spawner.SpawnBall();
         transform.localPosition = new Vector3(1.733055f, 0.5f, -17.78904f);
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
@@ -52,13 +57,14 @@ public class Dog : Agent
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {
+        Debug.Log("Score:" + GetCumulativeReward().ToString("f2"));
         //bij stilstaan afstraffen, nog niet zeker of dit nodig is
-        /*if (vectorAction[0] == 0 & vectorAction[1] == 0)
+        if (vectorAction[0] == 0 & vectorAction[1] == 0)
         {
-            
-            //AddReward(-0.001f);
+
+            AddReward(-0.001f);
             return;
-        }*/
+        }
 
         if (vectorAction[0] != 0)
         {
@@ -78,24 +84,34 @@ public class Dog : Agent
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("ball") && !ballInMouth)
+        if (collision.gameObject.CompareTag("tennisball") && !ballInMouth)
         {
             //load material of dog with ball in mouth
             // collision.gameObject.GetComponent<Renderer>().material = 
             ballInMouth = true;
-
+            Debug.Log("Ball in mouth:" + ballInMouth);
+            spawner.ClearEnvironment();
             // add reward for getting ball
-
+            AddReward(0.3f);
         }
 
-        if (collision.gameObject.CompareTag("player") && ballInMouth)
+        if (collision.gameObject.CompareTag("Player") && ballInMouth)
         {
-            
+            Debug.Log("Delivered ball");
+
             ballInMouth = false;
+            AddReward(1f);
             //add reward for returning ball to player
             EndEpisode();
         }
-       
+        else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
+        {
+            Debug.Log("Delivered with no ball");
+
+            //ballInMouth = false;
+            AddReward(-0.1f);
+        }
+
     }
 
     public override void CollectObservations(VectorSensor sensor)
