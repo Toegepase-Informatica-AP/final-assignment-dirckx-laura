@@ -100,11 +100,11 @@ public class Dog : Agent
             Debug.Log("Delivered ball");
 
             ballInMouth = false;
-            AddReward(1f);
+
             //add reward for returning ball to player
-            AddReward(+1f);
-            ballInMouth = false;
+            AddReward(1f);
             
+                    
             EndEpisode();
         }
         else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
