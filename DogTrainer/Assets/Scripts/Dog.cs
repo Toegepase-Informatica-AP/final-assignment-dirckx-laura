@@ -53,7 +53,7 @@ public class Dog : Agent
         }
     }
 
-    //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
+   
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {
@@ -102,6 +102,9 @@ public class Dog : Agent
             ballInMouth = false;
             AddReward(1f);
             //add reward for returning ball to player
+            AddReward(+1f);
+            ballInMouth = false;
+            
             EndEpisode();
         }
         else if (collision.gameObject.CompareTag("Player") && !ballInMouth)

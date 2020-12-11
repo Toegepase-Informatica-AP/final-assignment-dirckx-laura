@@ -24,13 +24,37 @@ public class Dog : Agent
     public override void OnEpisodeBegin()
     {
         transform.localPosition = new Vector3(1.733055f, 0.5f, -17.78904f);
-        
+        body.angularVelocity = Vector3.zero;
+        body.velocity = Vector3.zero;
+    }
+    public override void Heuristic(float[] actionsOut)
+    {
+        actionsOut[0] = 0f;
+        actionsOut[1] = 0f;
+
+        if (Input.GetKey(KeyCode.UpArrow)) // Moving fwd
+        {
+            actionsOut[0] = 2f;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow)) // Turning left
+        {
+            actionsOut[0] = 1f;
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow)) // Turning left
+        {
+            actionsOut[1] = 1f;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow)) // Turning right
+        {
+            actionsOut[1] = 2f;
+        }
     }
 
+   
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {
-         //bij stilstaan afstraffen, nog niet zeker of dit nodig is
+        //bij stilstaan afstraffen, nog niet zeker of dit nodig is
         /*if (vectorAction[0] == 0 & vectorAction[1] == 0)
         {
             
@@ -53,6 +77,7 @@ public class Dog : Agent
 
     }
 
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("ball") && !ballInMouth)
@@ -62,14 +87,16 @@ public class Dog : Agent
             ballInMouth = true;
 
             // add reward for getting ball
+            AddReward(+0.5f);          
 
         }
 
         if (collision.gameObject.CompareTag("player") && ballInMouth)
         {
-            
-            ballInMouth = false;
             //add reward for returning ball to player
+            AddReward(+1f);
+            ballInMouth = false;
+            
             EndEpisode();
         }
        
