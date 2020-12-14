@@ -1,6 +1,12 @@
 # DogTrainer
+### Inhoudstafel
+
+### Inleiding
 
 ### BalSpawner
+
+Voor het trainen is er een balSpawner geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar een bepaald punt moet brengen.
+Deze balSpawner is specifiek bedoeld voor het trainen. Later kunnen we dan de getrainde hond zijn brein toevoegen aan onze game.
 
 ```cs
 public class Spawner : MonoBehaviour
@@ -168,7 +174,7 @@ public class Dog : Agent
 
 }
 ```
-
+### Conclusie
 
 ### Bronvermelding
 
