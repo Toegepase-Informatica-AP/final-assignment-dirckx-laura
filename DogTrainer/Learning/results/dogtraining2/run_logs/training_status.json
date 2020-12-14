@@ -1,0 +1,23 @@
+{
+    "Dog": {
+        "checkpoints": [
+            {
+                "steps": 3512,
+                "file_path": "results\\dogtraining2\\Dog\\Dog-3512.nn",
+                "reward": -0.4750000365699331,
+                "creation_time": 1607934788.127924
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 3512,
+            "file_path": "results\\dogtraining2\\Dog.nn",
+            "reward": -0.4750000365699331,
+            "creation_time": 1607934788.127924
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.0",
+        "tensorflow_version": "2.3.1"
+    }
+}
