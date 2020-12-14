@@ -3,6 +3,9 @@
 
 ### Inleiding
 
+Ons project zal een hond voorstellen waar de speler mee kan spelen. De speler kan een bal gooien, de hond zal deze dan terugbrengen.
+
+
 ### BalSpawner
 
 Voor het trainen is er een balSpawner geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar een bepaald punt moet brengen.
@@ -174,6 +177,24 @@ public class Dog : Agent
 
 }
 ```
+
+### Trainen
+
+#### Training 1
+
+****yaml parameters****:
+
+
+****Rewardsysteem****: 
+* -0.1 als de hond naar de player gaat zonder bal
+* +1 als de hond naar de player gaat met bal
+* +0.3 als de hond de bal pakt
+* -0.001 als de hond stilstaat
+
+hier komt de grafiek
+
+****conclusie****:
+
 ### Conclusie
 
 ### Bronvermelding
