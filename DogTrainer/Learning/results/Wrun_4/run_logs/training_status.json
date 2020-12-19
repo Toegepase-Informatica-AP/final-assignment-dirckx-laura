@@ -1,0 +1,23 @@
+{
+    "Dog": {
+        "checkpoints": [
+            {
+                "steps": 28597,
+                "file_path": "results\\Wrun_4\\Dog\\Dog-28597.nn",
+                "reward": -0.3470000338740647,
+                "creation_time": 1608394923.9295468
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 28597,
+            "file_path": "results\\Wrun_4\\Dog.nn",
+            "reward": -0.3470000338740647,
+            "creation_time": 1608394923.9295468
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.1",
+        "tensorflow_version": "2.3.1"
+    }
+}

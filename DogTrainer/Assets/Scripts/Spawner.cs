@@ -34,7 +34,7 @@ public class Spawner : MonoBehaviour
     {
         GameObject newMenhir = Instantiate(tennisball.gameObject);
         newMenhir.transform.SetParent(tennisballContainer.transform);
-        newMenhir.transform.localPosition = RandomPosition(1f);
+        newMenhir.transform.localPosition = RandomPosition(0.2f);
         newMenhir.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
     }
 }
