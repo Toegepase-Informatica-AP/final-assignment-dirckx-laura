@@ -12,6 +12,7 @@ public class Dog : Agent
     public float speed = 10;
     public float rotationSpeed = 350;
     bool ballInMouth;
+    public GameObject tBall;
     
 
     public override void Initialize()
@@ -26,6 +27,7 @@ public class Dog : Agent
     {
         spawner.ClearEnvironment();
         spawner.SpawnBall();
+        tBall.SetActive(false);
         transform.localPosition = new Vector3(1.733055f, 0.5f, -17.78904f);
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
@@ -89,6 +91,7 @@ public class Dog : Agent
             //load material of dog with ball in mouth
             // collision.gameObject.GetComponent<Renderer>().material = 
             ballInMouth = true;
+            tBall.SetActive(true);
             Debug.Log("Ball in mouth:" + ballInMouth);
             spawner.ClearEnvironment();
             // add reward for getting ball
