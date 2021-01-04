@@ -33,7 +33,7 @@ public class Dog : Agent
         spawner.ClearEnvironment();
         spawner.SpawnBall();
         tBall.SetActive(false);
-        transform.localPosition = new Vector3(1.733055f, 0.5f, -17.78904f);
+        transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
     }
@@ -145,6 +145,8 @@ public class Dog : Agent
             ballInMouth = false;
             EndEpisode();
         }
+        
+        
     }
 
 }

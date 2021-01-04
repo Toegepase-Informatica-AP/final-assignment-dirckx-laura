@@ -1,13 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject tennisball;
     private GameObject tennisballContainer;
     private Dog dog;
-    
+
+    private void Update()
+    {
+       
+            if (tennisball.transform.position.y < 0)
+            {
+                ClearEnvironment();
+                SpawnBall();
+            }
+        
+    }
 
     public void OnEnable()
     {
@@ -48,4 +60,6 @@ public class Spawner : MonoBehaviour
         ball.transform.localPosition = new Vector3(0.1804f, -0.0674f, -0.0028f);
        // ball.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
     }
+
+    
 }
