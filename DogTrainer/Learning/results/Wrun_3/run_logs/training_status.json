@@ -1,0 +1,29 @@
+{
+    "Dog": {
+        "checkpoints": [
+            {
+                "steps": 49971,
+                "file_path": "results\\Wrun_3\\Dog\\Dog-49971.nn",
+                "reward": -1.6550000414717942,
+                "creation_time": 1608394131.0815818
+            },
+            {
+                "steps": 84476,
+                "file_path": "results\\Wrun_3\\Dog\\Dog-84476.nn",
+                "reward": -0.25000001926673576,
+                "creation_time": 1608394530.3525028
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 84476,
+            "file_path": "results\\Wrun_3\\Dog.nn",
+            "reward": -0.25000001926673576,
+            "creation_time": 1608394530.3525028
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.1",
+        "tensorflow_version": "2.3.1"
+    }
+}

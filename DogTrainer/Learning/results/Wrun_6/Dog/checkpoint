@@ -1,0 +1,3 @@
+model_checkpoint_path: "Dog-58593.ckpt"
+all_model_checkpoint_paths: "Dog-49960.ckpt"
+all_model_checkpoint_paths: "Dog-58593.ckpt"

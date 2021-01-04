@@ -1,0 +1,47 @@
+{
+    "Dog": {
+        "checkpoints": [
+            {
+                "steps": 349983,
+                "file_path": "results\\Wrun_8_noWalls\\Dog\\Dog-349983.nn",
+                "reward": 1.162208341663548,
+                "creation_time": 1608400859.9861283
+            },
+            {
+                "steps": 399946,
+                "file_path": "results\\Wrun_8_noWalls\\Dog\\Dog-399946.nn",
+                "reward": 1.328055559300507,
+                "creation_time": 1608401333.3149085
+            },
+            {
+                "steps": 449990,
+                "file_path": "results\\Wrun_8_noWalls\\Dog\\Dog-449990.nn",
+                "reward": 1.0687931053228035,
+                "creation_time": 1608401807.913562
+            },
+            {
+                "steps": 499995,
+                "file_path": "results\\Wrun_8_noWalls\\Dog\\Dog-499995.nn",
+                "reward": 1.2909139799034244,
+                "creation_time": 1608402278.0316632
+            },
+            {
+                "steps": 512430,
+                "file_path": "results\\Wrun_8_noWalls\\Dog\\Dog-512430.nn",
+                "reward": 1.3410344822653408,
+                "creation_time": 1608402397.763665
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 512430,
+            "file_path": "results\\Wrun_8_noWalls\\Dog.nn",
+            "reward": 1.3410344822653408,
+            "creation_time": 1608402397.763665
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.1",
+        "tensorflow_version": "2.3.1"
+    }
+}

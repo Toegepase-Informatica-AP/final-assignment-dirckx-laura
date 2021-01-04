@@ -13,7 +13,12 @@ public class Dog : Agent
     public float rotationSpeed = 350;
     bool ballInMouth;
     public GameObject tBall;
-    
+
+
+    public void Update()
+    {
+        fell();
+    }
 
     public override void Initialize()
     {
@@ -40,22 +45,26 @@ public class Dog : Agent
         if (Input.GetKey(KeyCode.UpArrow)) // Moving fwd
         {
             actionsOut[0] = 2f;
+
         }
         else if (Input.GetKey(KeyCode.DownArrow)) // Turning left
         {
             actionsOut[0] = 1f;
+
         }
         else if (Input.GetKey(KeyCode.LeftArrow)) // Turning left
         {
             actionsOut[1] = 1f;
+
         }
         else if (Input.GetKey(KeyCode.RightArrow)) // Turning right
         {
             actionsOut[1] = 2f;
+
         }
     }
 
-   
+
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {
@@ -80,7 +89,6 @@ public class Dog : Agent
             transform.Rotate(0, rotation, 0);
         }
 
-
     }
 
 
@@ -95,7 +103,8 @@ public class Dog : Agent
             Debug.Log("Ball in mouth:" + ballInMouth);
             spawner.ClearEnvironment();
             // add reward for getting ball
-            AddReward(0.3f);
+            AddReward(0.5f);
+
         }
 
         if (collision.gameObject.CompareTag("Player") && ballInMouth)
@@ -106,8 +115,8 @@ public class Dog : Agent
 
             //add reward for returning ball to player
             AddReward(1f);
-            
-                    
+
+
             EndEpisode();
         }
         else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
@@ -115,7 +124,7 @@ public class Dog : Agent
             Debug.Log("Delivered with no ball");
 
             //ballInMouth = false;
-            AddReward(-0.1f);
+            AddReward(-0.05f);
         }
 
     }
@@ -124,7 +133,18 @@ public class Dog : Agent
     {
         sensor.AddObservation(ballInMouth);
 
-        
+
+    }
+
+    public void fell()
+    {
+        if (GameObject.Find("Dog").transform.position.y < 0)
+        {
+            Debug.Log("Fell off");
+            AddReward(-1f);
+            ballInMouth = false;
+            EndEpisode();
+        }
     }
 
 }
