@@ -895,6 +895,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 235899906}
     m_Modifications:
+    - target: {fileID: -5802281324828168791, guid: 37957a68357d8614f9fec6b9f9d7ce34,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -958,7 +963,12 @@ PrefabInstance:
     - target: {fileID: 4441144758216363832, guid: 37957a68357d8614f9fec6b9f9d7ce34,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: tennisball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819541712009000808, guid: 37957a68357d8614f9fec6b9f9d7ce34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37957a68357d8614f9fec6b9f9d7ce34, type: 3}
@@ -1578,7 +1588,7 @@ Transform:
   - {fileID: 1696195290}
   - {fileID: 1632632071}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1716743266
 BoxCollider:
@@ -1606,6 +1616,7 @@ GameObject:
   - component: {fileID: 1877060849}
   - component: {fileID: 1877060848}
   - component: {fileID: 1877060847}
+  - component: {fileID: 1877060851}
   - component: {fileID: 1877060850}
   m_Layer: 0
   m_Name: XR Rig
@@ -1640,12 +1651,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877060844}
   m_LocalRotation: {x: -0.0051485696, y: 0.99300957, z: -0.1079753, w: -0.047400318}
-  m_LocalPosition: {x: 1.31, y: 3.93, z: 19.81}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.07, y: 6.01, z: 24.72}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1234008087}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0.711, y: 179.996, z: -0.703}
 --- !u!114 &1877060847
 MonoBehaviour:
@@ -1693,8 +1704,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Timeout: 10
   m_XRRig: {fileID: 1877060845}
---- !u!65 &1877060850
-BoxCollider:
+--- !u!136 &1877060850
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1703,9 +1714,26 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+  m_Radius: 0.29
+  m_Height: 1.87
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1877060851
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877060844}
   serializedVersion: 2
-  m_Size: {x: 4, y: 10, z: 4}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1001 &1964005304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,6 +1824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
+      propertyPath: m_DetectableTags.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
       propertyPath: m_EndVerticalOffset
       value: 0.7
       objectReference: {fileID: 0}
@@ -1808,6 +1841,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StartVerticalOffset
       value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[0]
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_DetectableTags.Array.data[1]
+      value: tennisball
       objectReference: {fileID: 0}
     - target: {fileID: 2399026952336328728, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
@@ -1929,6 +1972,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6455550575010025762, guid: edb2a2c94bd64cf4383ae8a09e0dfe85,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3ef14e51471e49d46bc162a8e05b882c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edb2a2c94bd64cf4383ae8a09e0dfe85, type: 3}
 --- !u!1 &2227812532920193738 stripped
