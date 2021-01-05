@@ -511,7 +511,7 @@ behaviors:
 
 ****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.03. Niet erg veel verschil. 
 
-#### Training 6 - 
+#### Training 6 - Yanu 4
 
 ****yaml parameters****:
 ```cs
@@ -559,11 +559,12 @@ behaviors:
 * -0.001 als de hond stilstaat
 * -1 als de hond van de map valt
 
-Grafiek hier
+![GraphYanu4](GraphYanu4.png)
 
-****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02. 
+****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
 
 ### Conclusie
+We gebruiken het brein van training 1, zonder walls.
 
 ### Bronvermelding
 
