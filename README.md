@@ -7,9 +7,10 @@
 * [Samenvatting](#samenvatting)
 * [One-pager](#one-pager)
 * [Verloop van het spel](#verloop-van-het-spel)
-* [Park](#park)
-* [BalSpawner](#balspawner)
-* [DogAgent](#dogagent)
+* [Methoden](#methoden)
+	* [Park](#park)
+	* [BalSpawner](#balspawner)
+	* [DogAgent](#dogagent)
 * [Trainen](#trainen)
 	* [Training 1 - Witse](#training-1---witse)
 	* [Training 2 - Wrun_9_WWalls](#training-2---wrun_9_wwalls)
@@ -41,11 +42,13 @@ Na verder onderzoeken en denken zijn we volledig afgeweken van onze one-pager. W
 
 ![](spelVerloop.png)
 
-### Park
+### Methoden
+
+#### Park
 
 Als omgeving hebben we voor een park gekozen. Dit zal de omgeving zijn waarin zowel de hond als de speler zich kan bewegen.
 
-### BalSpawner
+#### BalSpawner
 
 Voor het trainen is er een balSpawner geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar een bepaald punt moet brengen.
 Deze balSpawner is specifiek bedoeld voor het trainen. Later kunnen we dan de getrainde hond zijn brein toevoegen aan onze game.
@@ -91,7 +94,7 @@ public class Spawner : MonoBehaviour
 ```
 
 
-### DogAgent
+#### DogAgent
 
 Voor de hond word er een leeg GameObject voorzien. Als de hond de bal heeft word deze zichtbaar gemaakt, zodat de hond met een bal in zijn mond verder loopt.
 
