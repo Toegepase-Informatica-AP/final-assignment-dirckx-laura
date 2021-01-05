@@ -533,7 +533,7 @@ behaviors:
 * +1 als de hond naar de player gaat met bal
 * +0.5 als de hond de bal pakt
 * -0.001 als de hond stilstaat
-* -1 als de hond van de mâp valt
+* -1 als de hond van de map valt
 
 Grafiek hier
 
