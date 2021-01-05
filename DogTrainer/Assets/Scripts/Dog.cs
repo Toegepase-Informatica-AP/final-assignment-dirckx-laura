@@ -121,16 +121,13 @@ public class Dog : Agent
             Debug.Log("Delivered with no ball");
 
             //ballInMouth = false;
-            AddReward(-0.05f);
+            AddReward(-0.1f);
         }
-
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(ballInMouth);
-
-        
+        sensor.AddObservation(ballInMouth);     
     }
 
     public void fell()
