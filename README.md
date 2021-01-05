@@ -1,6 +1,27 @@
 # DogTrainer
 ### Inhoudstafel
 
+<!-- Start Document Outline -->
+
+* [Inleiding](#inleiding)
+* [Samenvatting](#samenvatting)
+* [One-pager](#one-pager)
+* [Verloop van het spel](#verloop-van-het-spel)
+* [Park](#park)
+* [BalSpawner](#balspawner)
+* [DogAgent](#dogagent)
+* [Trainen](#trainen)
+	* [Training 1 - Witse](#training-1---witse)
+	* [Training 2 - Wrun_9_WWalls](#training-2---wrun_9_wwalls)
+	* [Training 3 - Yanu 1](#training-3---yanu-1)
+	* [Training 4 - Yanu 2](#training-4---yanu-2)
+	* [Training 5 - Yanu 3](#training-5---yanu-3)
+	* [Training 6 -](#training-6--)
+* [Conclusie](#conclusie)
+* [Bronvermelding](#bronvermelding)
+
+<!-- End Document Outline -->
+
 ### Inleiding
 
 Ons project zal een hond voorstellen waar de speler mee kan spelen. De speler kan een bal gooien, de hond zal deze dan terugbrengen. Dit kan mensen met een enorme schrik voor honden helpen om hun schrik te overwinnen.
