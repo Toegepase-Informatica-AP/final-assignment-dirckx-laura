@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 105695113}
   - component: {fileID: 105695117}
   - component: {fileID: 105695115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 798653319}
   - component: {fileID: 798653318}
   - component: {fileID: 798653317}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Teleport Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1196,7 +1196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1234008087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Camera Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,12 +1236,12 @@ PrefabInstance:
     - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.378
+      value: 0.411
       objectReference: {fileID: 0}
     - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: 0.418
       objectReference: {fileID: 0}
     - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
         type: 3}
@@ -1288,6 +1288,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 16.11715
+      objectReference: {fileID: 0}
+    - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 16.11715
+      objectReference: {fileID: 0}
+    - target: {fileID: 278470886071122252, guid: 37957a68357d8614f9fec6b9f9d7ce34,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 16.11715
+      objectReference: {fileID: 0}
     - target: {fileID: 4441144758216363832, guid: 37957a68357d8614f9fec6b9f9d7ce34,
         type: 3}
       propertyPath: m_Name
@@ -1319,7 +1334,7 @@ GameObject:
   - component: {fileID: 1575099174}
   - component: {fileID: 1575099178}
   - component: {fileID: 1575099176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftHand Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1946,7 +1961,7 @@ GameObject:
   - component: {fileID: 1877060847}
   - component: {fileID: 1877060851}
   - component: {fileID: 1877060850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XR Rig
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1978,14 +1993,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877060844}
-  m_LocalRotation: {x: -0.0051485696, y: 0.99300957, z: -0.1079753, w: -0.047400318}
-  m_LocalPosition: {x: 0.07, y: 6.01, z: 24.72}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.65, y: 3.71, z: 20.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1234008087}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0.711, y: 179.996, z: -0.703}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1877060847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2042,10 +2057,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.29
-  m_Height: 1.87
+  m_Radius: 0.45847416
+  m_Height: 4.993948
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.008535445, y: -0.7210493, z: 0}
 --- !u!54 &1877060851
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2179,6 +2194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DetectableTags.Array.data[1]
       value: tennisball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_RayLayerMask.m_Bits
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 2399026952336328728, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
