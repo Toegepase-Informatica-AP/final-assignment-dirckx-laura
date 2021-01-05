@@ -17,7 +17,7 @@
 	* [Training 3 - Yanu 1](#training-3---yanu-1)
 	* [Training 4 - Yanu 2](#training-4---yanu-2)
 	* [Training 5 - Yanu 3](#training-5---yanu-3)
-	* [Training 6 -](#training-6--)
+	* [Training 6 - Yanu 4](#training-6---yanu-4)
 * [Conclusie](#conclusie)
 * [Bronvermelding](#bronvermelding)
 
