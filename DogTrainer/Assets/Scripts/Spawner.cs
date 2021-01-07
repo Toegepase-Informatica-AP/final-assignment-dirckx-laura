@@ -12,13 +12,13 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-       
-            if (tennisball.transform.position.y < 0)
-            {
-                ClearEnvironment();
-                SpawnBall();
-            }
-        
+
+        if (tennisball.transform.position.y < 0)
+        {
+            ClearEnvironment();
+            SpawnBall();
+        }
+
     }
 
     public void OnEnable()
@@ -44,9 +44,9 @@ public class Spawner : MonoBehaviour
     {
         GameObject ball = Instantiate(tennisball.gameObject);
         ball.transform.SetParent(tennisballContainer.transform);
-        
+
         ball.transform.localPosition = new Vector3(0.1804f, -0.0674f, -0.0028f);
     }
 
-    
+
 }

@@ -35,6 +35,7 @@ public class Dog : Agent
         spawner.ClearEnvironment();
         spawner.SpawnBall();
         tBall.SetActive(false);
+        ballInMouth = false;
         transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
@@ -71,7 +72,7 @@ public class Dog : Agent
     public override void OnActionReceived(float[] vectorAction)
     {      
         //bij stilstaan afstraffen, nog niet zeker of dit nodig is
-        if (vectorAction[0] == 0 & vectorAction[1] == 0)
+        if (vectorAction[0] == 0)
         {
 
             AddReward(-0.001f);
@@ -121,7 +122,7 @@ public class Dog : Agent
         {
             Debug.Log("get called");
             //ballInMouth = false;
-            AddReward(-0.1f);
+            AddReward(-0.5f);
 
         }
 
