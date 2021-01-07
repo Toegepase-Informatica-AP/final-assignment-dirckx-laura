@@ -1,4 +1,14 @@
-# DogTrainer
+# DogTrainer - VR Experience
+
+| Naam         | Studentennummer |
+|--------------|-----------------|
+| Dirckx Laura | s104004         |
+| Cools Witse  | s110026         |
+| Stoels James | s107197         |
+| Szapinszky Yanu  | s107798         |
+| Wannarueang Bunyarit | s094468         |
+
+
 ### Inhoudstafel
 
 <!-- Start Document Outline -->
@@ -25,18 +35,39 @@
 
 ### Inleiding
 
-Ons project zal een hond voorstellen waar de speler mee kan spelen. De speler kan een bal gooien, de hond zal deze dan terugbrengen. Dit kan mensen met een enorme schrik voor honden helpen om hun schrik te overwinnen.
+We besloten om een DogTrainer te maken, omdat sommige mensen nog vaak angst hebben van honden. Deze VR-game zou hen kunnen helpen met het gewaarworden van een hond en zijn gedragingen.
 
-Dit project is bedoeld om met een Oculus VR-headset te spelen om de volledige emersie te beleven.
+Dit project is bedoeld om met een Oculus Quest VR-headset te spelen om de volledige emersie te beleven.
 
 ### Samenvatting
 
 In deze tutorial zullen wij beschrijven wat u moet weten om dit project tot een goed einde te bregen. We zullen waar nodig extra toelichten en de belangrijkste scripts tonen. Na het volgen van deze tutorial kan u zelf een gelijkaardig project maken en spelen op uw eigen VR-headset.
+Ons project zal een hond voorstellen waar de speler mee kan spelen. De speler kan een bal gooien, de hond zal deze dan terugbrengen.
+
+Na deze tutorial bent u in staat dit project te reproduceren.
+
+### Installatie
+
+| Programma         | Versie |
+|--------------|-----------------|
+| Unity        | 2019.4.12f      |
+| Visual Studio  | 2019          |
+| ML Agents    | 1.2             |
+| Python       | 3.8.6           |
+| Tensorboard  | 2.4.0           |
+| XR Interaction Toolkit | 0.9.4 |
+| Oculus XR Plugin | 1.4.3       |
+
+* Er worden twee packages gebruikt uit de asset store in Unity. Deze kan u installeren door op Window -> Asset Store te klikken en deze te installeren.
+
+* Fantasy Skybox wordt gebruikt voor de skybox.
+* Waldemarst wordt gebruikt voor de bomen.
 
 ### One-pager
 
-Na verder onderzoeken en denken zijn we volledig afgeweken van onze one-pager. We hebben een volledig nieuw concept uitgedacht en dit gaan we uitwerken.
+Dit was onze [One-pager](One-Pager.pdf).
 
+Na feedback van de lectoren en verder onderzoeken zijn we volledig afgeweken van onze one-pager. Ons initieël idee was niet echt van toepassing voor deze opdracht. Daarom hebben we ervoor gekozen om een nieuw project uit te werken. Hierbij kunnen we ML-agents beter benutten.
 
 ### Verloop van het spel
 
@@ -50,9 +81,11 @@ Als omgeving hebben we voor een park gekozen. Dit zal de omgeving zijn waarin zo
 
 #### BalSpawner
 
-Voor het trainen is er een balSpawner geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar een bepaald punt moet brengen.
+Voor het trainen is er een balSpawner geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar de speler moet brengen.
 Deze balSpawner is specifiek bedoeld voor het trainen. Later kunnen we dan de getrainde hond zijn brein toevoegen aan onze game.
-Finaal word deze BalSpawner gebruikt om de bal te laten spawnen op een tafel, waar de speler de bal van kan nemen en weggooien.
+
+Finaal word deze BalSpawner gebruikt om de bal te laten spawnen op een tafel, waar de speler deze van kan nemen en weggooien.
+In dit script wordt ook gezorgd voor het herspawnen van de bal op de juiste positie.
 
 ```cs
 public class Spawner : MonoBehaviour
@@ -107,7 +140,19 @@ public class Spawner : MonoBehaviour
 
 #### DogAgent
 
-Voor de hond word er een leeg GameObject voorzien. Als de hond de bal heeft word deze zichtbaar gemaakt, zodat de hond met een bal in zijn mond verder loopt.
+Voor de hond wordt er een leeg GameObject voorzien met daarin de dog prefab en de tennisbal prefab. Als de hond de bal heeft wordt deze zichtbaar gemaakt, zodat de hond met een bal in zijn mond verder loopt. Als de hond geen bal heeft, wordt deze bal onzichtbaar gemaakt.
+
+![DogPrefab](Dog.png)
+
+![](HierachyDog.png)
+
+Dit script zorgt er ook voor dat de hond op de juiste plaats spawnt. Hierin word ook alle logica rond trainen, beloningssysteem en episodes afgehandeld.  
+De Heuristic kant word hierin ook gemaakt.
+Alle collision-detection word hierin ook geschreven.
+De hond heeft ook een Ray Perception Sensor. Hierin specifiëren we dat de hond enkel de Player en de tennisbal kan zien. Om te voorkomen dat hij 'verdwaald' rondloopt.
+
+![](RayPerceptionSensor.png)
+
 
 Met als referentie Obelix script van ML-agents github [kijk bronvermelding](#bronvermelding).
 
@@ -299,11 +344,14 @@ behaviors:
         learning_rate : 1e-3
 ```
 ****Rewardsysteem****: 
-* -0.1 als de hond naar de player gaat zonder bal
-* +1 als de hond naar de player gaat met bal
-* +0.5 als de hond de bal pakt
-* -0.001 als de hond stilstaat
-* -0.1 als de hond valt van environment
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.5f             |
+| Hond staat stil       | -0.001f           |
+| Hond valt van de map  | -0.1f           |
 
 ![StoryBoard](StoryBoard.png)
 
@@ -356,11 +404,15 @@ behaviors:
         learning_rate : 1e-3
 ```
 ****Rewardsysteem****: 
-* -0.1 als de hond naar de player gaat zonder bal
-* +1 als de hond naar de player gaat met bal
-* +0.5 als de hond de bal pakt
-* -0.001 als de hond stilstaat
-* -0.1 als de hond valt van environment
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.5f             |
+| Hond staat stil       | -0.001f           |
+| Hond valt van de map  | -0.1f           |
+
 
 ![StoryBoard](StoryBoard.png)
 
@@ -411,10 +463,14 @@ behaviors:
 
 
 ****Rewardsysteem****: 
-* -0.1 als de hond naar de player gaat zonder bal
-* +1 als de hond naar de player gaat met bal
-* +0.3 als de hond de bal pakt
-* -0.001 als de hond stilstaat
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.3f             |
+| Hond staat stil       | -0.001f           |
+
 
 ![GraphYanu1](GraphYanu1.png)
 
@@ -462,10 +518,13 @@ behaviors:
 
 
 ****Rewardsysteem****: 
-* -0.1 als de hond naar de player gaat zonder bal
-* +1 als de hond naar de player gaat met bal
-* +0.3 als de hond de bal pakt
-* -0.001 als de hond stilstaat
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.3f             |
+| Hond staat stil       | -0.001f           |
 
 ![GraphYanu2](GraphYanu2.png)
 
@@ -513,10 +572,13 @@ behaviors:
 
 
 ****Rewardsysteem****: 
-* -0.1 als de hond naar de player gaat zonder bal
-* +1 als de hond naar de player gaat met bal
-* +0.3 als de hond de bal pakt
-* -0.001 als de hond stilstaat
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.3f             |
+| Hond staat stil       | -0.001f           |
 
 ![GraphYanu3](GraphYanu3.png)
 
@@ -564,20 +626,84 @@ behaviors:
 
 
 ****Rewardsysteem****: 
-* -0.1 als de hond naar de player gaat zonder bal
-* +1 als de hond naar de player gaat met bal
-* +0.5 als de hond de bal pakt
-* -0.001 als de hond stilstaat
-* -1 als de hond van de map valt
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.5f             |
+| Hond staat stil       | -0.001f           |
+| Hond valt van de map  | -1f           |
 
 ![GraphYanu4](GraphYanu4.png)
 
 ****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
 final
 ### Conclusie
-We gebruiken het brein van training 1, zonder walls.
+We gebruiken het brein van training 1, zonder muren.
+
+#### Training 7 - Yanu 5
+
+****yaml parameters****:
+```cs
+behaviors:
+  Dog:
+    trainer_type: ppo
+    max_steps: 5.0e7
+    time_horizon: 64
+    summary_freq: 10000
+    keep_checkpoints: 5
+    checkpoint_interval: 50000
+    
+    hyperparameters:
+      batch_size: 32
+      buffer_size: 9600
+      learning_rate: 3.0e-4
+      learning_rate_schedule: constant
+      beta: 5.0e-3
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 3
+
+    network_settings:
+      num_layers: 2
+      hidden_units: 128
+      normalize: false
+      vis_encoder_type: simple
+
+    reward_signals:
+      extrinsic:
+        strength: 1.0
+        gamma: 0.99
+      curiosity:
+        strength: 0.02
+        gamma: 0.99
+        encoding_size: 256
+        learning_rate : 1e-3
+```
+
+
+****Rewardsysteem****: 
+
+| Actie         | Reward |
+|--------------|-----------------|
+| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler met bal  | +1.0f          |
+| Hond pakt bal    | +0.5f             |
+| Hond staat stil       | -0.001f           |
+| Hond valt van de map  | -1f           |
+
+****conclusie****: Zonder muren. Episode word opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op. 
+
+### Conclusie
+We hebben via machine learning een hond getraint om een bal te halen en terug te brengen.
+
+Het trainen bracht meerdere onverwachte problemen met zich mee. Na wat bugfixes hebben we de juiste combinatie van rewards gevonden. Dit zijnde training 7. Dit is een training zonder muren.
+
+Het project op deze unieke manier beleven was echter een uitdaging. In de toekomst zou het enorm leuk zijn onze game allemaal eens écht te beleven op een VR-set.
 
 ### Bronvermelding
 
 * Dhaese, D. D. (2020). Gedragingen van de agent en de andere spelobjecten. VR Experience (ML-Agents). https://ddhaese.github.io/ML-Agents/gedragingen-van-de-agent-en-de-andere-spelobjecten.html#obelix.cs
 * Chen, L. C., & Berges, V. B. (2018, October 2). Puppo, The Corgi: Cuteness Overload with the Unity ML-Agents Toolkit. Unity Blog. https://blogs.unity3d.com/2018/10/02/puppo-the-corgi-cuteness-overload-with-the-unity-ml-agents-toolkit/
+* Valem, V. (2020, June 15). Introduction to VR in Unity - PART 6 : RAY INTERACTION. Youtube. https://www.youtube.com/watch?v=4tW7XpAiuDg&start=839s
