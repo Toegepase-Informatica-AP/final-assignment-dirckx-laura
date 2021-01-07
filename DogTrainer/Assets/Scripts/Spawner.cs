@@ -31,7 +31,6 @@ public class Spawner : MonoBehaviour
     {
         foreach (Transform ball in tennisballContainer.transform)
         {
-            Debug.Log("Destroying ball");
             GameObject.Destroy(ball.gameObject);
         }
     }
@@ -42,23 +41,12 @@ public class Spawner : MonoBehaviour
         return new Vector3(x, up, z);
     }
 
-    /*public Vector3 OnTable()
-    {
-        float x = -1.55f;
-        float y = 0.22f;
-        float z = 35.77f;
-        return new Vector3(x, y, z);
-    }*/
-
-
     public void SpawnBall()
     {
         GameObject ball = Instantiate(tennisball.gameObject);
         ball.transform.SetParent(tennisballContainer.transform);
-        // ball.transform.localPosition = RandomPosition(1f);
         
         ball.transform.localPosition = new Vector3(0.1804f, -0.0674f, -0.0028f);
-       // ball.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
     }
 
     

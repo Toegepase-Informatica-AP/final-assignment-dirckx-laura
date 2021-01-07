@@ -61,6 +61,17 @@ public class Spawner : MonoBehaviour
     private GameObject tennisballContainer;
     private Dog dog;
 
+    private void Update()
+    {
+       
+            if (tennisball.transform.position.y < 0)
+            {
+                ClearEnvironment();
+                SpawnBall();
+            }
+        
+    }
+
     public void OnEnable()
     {
 
@@ -71,7 +82,6 @@ public class Spawner : MonoBehaviour
     {
         foreach (Transform ball in tennisballContainer.transform)
         {
-            Debug.Log("Destroying ball");
             GameObject.Destroy(ball.gameObject);
         }
     }
@@ -82,14 +92,15 @@ public class Spawner : MonoBehaviour
         return new Vector3(x, up, z);
     }
 
-
     public void SpawnBall()
     {
-        GameObject newMenhir = Instantiate(tennisball.gameObject);
-        newMenhir.transform.SetParent(tennisballContainer.transform);
-        newMenhir.transform.localPosition = RandomPosition(1f);
-        newMenhir.transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+        GameObject ball = Instantiate(tennisball.gameObject);
+        ball.transform.SetParent(tennisballContainer.transform);
+        
+        ball.transform.localPosition = new Vector3(0.1804f, -0.0674f, -0.0028f);
     }
+
+    
 }
 ```
 
@@ -109,6 +120,7 @@ public class Dog : Agent
     public float rotationSpeed = 350;
     bool ballInMouth;
     public GameObject tBall;
+    public GameObject player;
 
 
     public void Update()
@@ -121,7 +133,10 @@ public class Dog : Agent
         base.Initialize();
         body = GetComponent<Rigidbody>();
         spawner = GetComponentInParent<Spawner>();
-        //spawner.SpawnBall();
+        transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
+        body.angularVelocity = Vector3.zero;
+        body.velocity = Vector3.zero;
+
     }
 
     public override void OnEpisodeBegin()
@@ -129,9 +144,6 @@ public class Dog : Agent
         spawner.ClearEnvironment();
         spawner.SpawnBall();
         tBall.SetActive(false);
-        transform.localPosition = new Vector3(1.733055f, 0.5f, -17.78904f);
-        body.angularVelocity = Vector3.zero;
-        body.velocity = Vector3.zero;
     }
     public override void Heuristic(float[] actionsOut)
     {
@@ -163,8 +175,7 @@ public class Dog : Agent
 
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
-    {
-        Debug.Log("Score:" + GetCumulativeReward().ToString("f2"));
+    {      
         //bij stilstaan afstraffen, nog niet zeker of dit nodig is
         if (vectorAction[0] == 0 & vectorAction[1] == 0)
         {
@@ -196,7 +207,6 @@ public class Dog : Agent
             // collision.gameObject.GetComponent<Renderer>().material = 
             ballInMouth = true;
             tBall.SetActive(true);
-            Debug.Log("Ball in mouth:" + ballInMouth);
             spawner.ClearEnvironment();
             // add reward for getting ball
             AddReward(0.5f);
@@ -205,8 +215,7 @@ public class Dog : Agent
 
         if (collision.gameObject.CompareTag("Player") && ballInMouth)
         {
-            Debug.Log("Delivered ball");
-
+            
             ballInMouth = false;
 
             //add reward for returning ball to player
@@ -217,8 +226,8 @@ public class Dog : Agent
         }
         else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
         {
-            Debug.Log("Delivered with no ball");
 
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
             //ballInMouth = false;
             AddReward(-0.05f);
         }
@@ -236,11 +245,13 @@ public class Dog : Agent
     {
         if (GameObject.Find("Dog").transform.position.y < 0)
         {
-            Debug.Log("Fell off");
+            
             AddReward(-1f);
             ballInMouth = false;
             EndEpisode();
         }
+        
+        
     }
 
 }
@@ -562,7 +573,7 @@ behaviors:
 ![GraphYanu4](GraphYanu4.png)
 
 ****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
-
+final
 ### Conclusie
 We gebruiken het brein van training 1, zonder walls.
 
