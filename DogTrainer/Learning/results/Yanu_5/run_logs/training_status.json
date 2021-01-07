@@ -1,0 +1,47 @@
+{
+    "Dog": {
+        "checkpoints": [
+            {
+                "steps": 249979,
+                "file_path": "results\\Yanu_5\\Dog\\Dog-249979.nn",
+                "reward": 1.126666676592625,
+                "creation_time": 1610035689.9255345
+            },
+            {
+                "steps": 299966,
+                "file_path": "results\\Yanu_5\\Dog\\Dog-299966.nn",
+                "reward": 0.47399999997155234,
+                "creation_time": 1610036176.7238796
+            },
+            {
+                "steps": 349993,
+                "file_path": "results\\Yanu_5\\Dog\\Dog-349993.nn",
+                "reward": 1.0376666663059344,
+                "creation_time": 1610036662.4915648
+            },
+            {
+                "steps": 399994,
+                "file_path": "results\\Yanu_5\\Dog\\Dog-399994.nn",
+                "reward": 1.0477027072747414,
+                "creation_time": 1610037144.4952023
+            },
+            {
+                "steps": 421360,
+                "file_path": "results\\Yanu_5\\Dog\\Dog-421360.nn",
+                "reward": 1.0310760931081504,
+                "creation_time": 1610037350.2414386
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 421360,
+            "file_path": "results\\Yanu_5\\Dog.nn",
+            "reward": 1.0310760931081504,
+            "creation_time": 1610037350.2414386
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.1.0",
+        "mlagents_version": "0.21.1",
+        "tensorflow_version": "2.3.1"
+    }
+}

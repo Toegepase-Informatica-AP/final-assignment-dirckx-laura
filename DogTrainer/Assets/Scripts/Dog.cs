@@ -68,7 +68,7 @@ public class Dog : Agent
     {
         Debug.Log("Score:" + GetCumulativeReward().ToString("f2"));
         //bij stilstaan afstraffen, nog niet zeker of dit nodig is
-        if (vectorAction[0] == 0 & vectorAction[1] == 0)
+        if (vectorAction[0] == 0)
         {
 
             AddReward(-0.001f);
