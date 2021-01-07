@@ -11,39 +11,38 @@
 
 ### Inhoudstafel
 
-<!-- Start Document Outline -->
+- [DogTrainer - VR Experience](#dogtrainer---vr-experience)
+    - [Inhoudstafel](#inhoudstafel)
+    - [Inleiding](#inleiding)
+    - [Samenvatting](#samenvatting)
+    - [Installatie](#installatie)
+    - [One-pager](#one-pager)
+    - [Verloop van het spel](#verloop-van-het-spel)
+    - [Methoden](#methoden)
+      - [Park](#park)
+      - [BalSpawner](#balspawner)
+      - [DogAgent](#dogagent)
+    - [Trainen](#trainen)
+      - [Training 1 - Witse](#training-1---witse)
+      - [Training 2 - Wrun_9_WWalls](#training-2---wrun_9_wwalls)
+      - [Training 3 - Yanu 1](#training-3---yanu-1)
+      - [Training 4 - Yanu 2](#training-4---yanu-2)
+      - [Training 5 - Yanu 3](#training-5---yanu-3)
+      - [Training 6 - Yanu 4](#training-6---yanu-4)
+      - [Training 7 - Yanu 5](#training-7---yanu-5)
+    - [Conclusie](#conclusie)
+    - [Bronvermelding](#bronvermelding)
 
-* [Inleiding](#inleiding)
-* [Samenvatting](#samenvatting)
-* [Installatie](#installatie)
-* [One-pager](#one-pager)
-* [Verloop van het spel](#verloop-van-het-spel)
-* [Methoden](#methoden)
-	* [Park](#park)
-	* [BalSpawner](#balspawner)
-	* [DogAgent](#dogagent)
-* [Trainen](#trainen)
-	* [Training 1 - Witse](#training-1---witse)
-	* [Training 2 - Wrun_9_WWalls](#training-2---wrun_9_wwalls)
-	* [Training 3 - Yanu 1](#training-3---yanu-1)
-	* [Training 4 - Yanu 2](#training-4---yanu-2)
-	* [Training 5 - Yanu 3](#training-5---yanu-3)
-	* [Training 6 - Yanu 4](#training-6---yanu-4)
-	* [Training 7 - Yanu 5](#training-7---yanu-5)
-* [Conclusie](#conclusie)
-* [Bronvermelding](#bronvermelding)
-
-<!-- End Document Outline -->
 
 ### Inleiding
 
-We besloten om een DogTrainer te maken, omdat sommige mensen nog vaak angst hebben van honden. Deze VR-game zou hen kunnen helpen met het gewaarworden van een hond en zijn gedragingen.
+Omdat sommige mensen nog vaak bang zijn van honden hebben we besloten om een DogTrainer te maken. Deze VR-game zou hen kunnen helpen met het gewaarworden van een hond en zijn gedragingen.
 
 Dit project is bedoeld om met een Oculus Quest VR-headset te spelen om de volledige emersie te beleven.
 
 ### Samenvatting
 
-In deze tutorial zullen wij beschrijven wat u moet weten om dit project tot een goed einde te bregen. We zullen waar nodig extra toelichten en de belangrijkste scripts tonen. Na het volgen van deze tutorial kan u zelf een gelijkaardig project maken en spelen op uw eigen VR-headset.
+In deze tutorial zullen wij beschrijven wat u moet weten om dit project tot een goed einde te brengen. We zullen waar nodig extra toelichten en de belangrijkste scripts tonen. Na het volgen van deze tutorial kan u zelf een gelijkaardig project maken en spelen op uw eigen VR-headset.
 Ons project zal een hond voorstellen waar de speler mee kan spelen. De speler kan een bal gooien, de hond zal deze dan terugbrengen.
 
 Na deze tutorial bent u in staat dit project te reproduceren.
@@ -69,7 +68,7 @@ Na deze tutorial bent u in staat dit project te reproduceren.
 
 Dit was onze [One-pager](One-Pager.pdf).
 
-Na feedback van de lectoren en verder onderzoeken zijn we volledig afgeweken van onze one-pager. Ons initieël idee was niet echt van toepassing voor deze opdracht. Daarom hebben we ervoor gekozen om een nieuw project uit te werken. Hierbij kunnen we ML-agents beter benutten.
+Na feedback van de lectoren en verder onderzoek zijn we volledig afgeweken van onze one-pager. Bij ons initieël idee was het niet echt duidelijk waar de AI-Toepassing zat. Daarom hebben we ervoor gekozen om een nieuw project uit te werken. Hierbij kunnen we ML-agents beter benutten.
 
 ### Verloop van het spel
 
@@ -83,10 +82,10 @@ Als omgeving hebben we voor een park gekozen. Dit zal de omgeving zijn waarin zo
 
 #### BalSpawner
 
-Voor het trainen is er een balSpawner geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar de speler moet brengen.
-Deze balSpawner is specifiek bedoeld voor het trainen. Later kunnen we dan de getrainde hond zijn brein toevoegen aan onze game.
+Voor het trainen is er een balSpawner script geschreven. Deze zal op random plaatsen binnen het veld een bal spawnen, die de hond dan moet gaan halen en naar de speler moet brengen.
+Deze balSpawner is specifiek bedoeld voor het trainen. Later kunnen we dan de getrainde hond zijn brein geven door deze toe te voegen in de behaviour parameters van de hond.
 
-Finaal word deze BalSpawner gebruikt om de bal te laten spawnen op een tafel, waar de speler deze van kan nemen en weggooien.
+Finaal wordt het BalSpawner script gebruikt dat hieronder zichtbaar is om de bal te laten spawnen op een tafel, waar de speler deze kan nemen en weggooien.
 In dit script wordt ook gezorgd voor het herspawnen van de bal op de juiste positie.
 
 ```cs
@@ -132,7 +131,7 @@ public class Spawner : MonoBehaviour
         GameObject ball = Instantiate(tennisball.gameObject);
         ball.transform.SetParent(tennisballContainer.transform);
         
-        ball.transform.localPosition = new Vector3(0.1804f, -0.0674f, -0.0028f);
+        ball.transform.localPosition = new Vector3(0.1804f, -0.0674f ,-00028f);
     }
 
     
@@ -142,16 +141,15 @@ public class Spawner : MonoBehaviour
 
 #### DogAgent
 
-Voor de hond wordt er een leeg GameObject voorzien met daarin de dog prefab en de tennisbal prefab. Als de hond de bal heeft wordt deze zichtbaar gemaakt, zodat de hond met een bal in zijn mond verder loopt. Als de hond geen bal heeft, wordt deze bal onzichtbaar gemaakt.
+Voor de hond wordt er een leeg GameObject voorzien met daarin de dog prefab en de tennisbal prefab. Als de hond de bal heeft wordt de tennisbal prefab in het lege hond GameObject zichtbaar gemaakt, zodat de hond met een bal in zijn mond verder loopt. Als de hond geen bal heeft, wordt deze bal onzichtbaar gemaakt.
 
 ![DogPrefab](Dog.png)
 
 ![](HierachyDog.png)
 
-Dit script zorgt er ook voor dat de hond op de juiste plaats spawnt. Hierin word ook alle logica rond trainen, beloningssysteem en episodes afgehandeld.  
-De Heuristic kant word hierin ook gemaakt.
-Alle collision-detection word hierin ook geschreven.
-De hond heeft ook een Ray Perception Sensor. Hierin specifiëren we dat de hond enkel de Player en de tennisbal kan zien. Om te voorkomen dat hij 'verdwaald' rondloopt.
+Dit script zorgt er ook voor dat de hond op de juiste plaats spawnt. Hierin wordt ook alle logica rond trainen, beloningssysteem en episodes afgehandeld.  
+Dit script zorgt er ook voor dat de hond met de pijltjes toetsen bestuurd kan worden.
+Hiernaast gebeurt alle collision-detection ook in dit script. De hond heeft ook een Ray Perception Sensor. Hierin specifiëren we dat de hond enkel de Player en de tennisbal kan zien. Om te voorkomen dat hij 'verdwaald' rondloopt.
 
 ![](RayPerceptionSensor.png)
 
@@ -364,7 +362,7 @@ behaviors:
 * Step: 510K
 * Runtime: 1h 19m 52s
 
-****conclusie****: Zonder muren getraint, goede resultaten. Volgende keer met muren proberen trainen, zien of de resultaten even goed blijven.
+****conclusie****: Zonder muren getraind, goede resultaten. Volgende keer met muren proberen trainen, zien of de resultaten even goed blijven.
 
 #### Training 2 - Wrun_9_WWalls
 
@@ -421,7 +419,7 @@ behaviors:
 ![GraphWithWalls](GraphWithWalls.png)
 
 
-****conclusie****: Met muren getraint, minder goede resultaten.
+****conclusie****: Met muren getraind, minder goede resultaten.
 
 #### Training 3 - Yanu 1
 
@@ -476,7 +474,7 @@ behaviors:
 
 ![GraphYanu1](GraphYanu1.png)
 
-****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.01 getraint. Ongeveer dezelfde resultaten.
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.01 getraind. Ongeveer dezelfde resultaten.
 
 #### Training 4 - Yanu 2
 
@@ -530,7 +528,7 @@ behaviors:
 
 ![GraphYanu2](GraphYanu2.png)
 
-****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02 getraint. Niet erg veel verschil, gaat wel iets sneller dan de vorige.
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02 getraind. Niet erg veel verschil, gaat wel iets sneller dan de vorige.
 
 #### Training 5 - Yanu 3
 
@@ -584,7 +582,7 @@ behaviors:
 
 ![GraphYanu3](GraphYanu3.png)
 
-****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.03. Niet erg veel verschil. 
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.03. Niet erg veel verschil. 
 
 #### Training 6 - Yanu 4
 
@@ -639,8 +637,7 @@ behaviors:
 
 ![GraphYanu4](GraphYanu4.png)
 
-****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
-final.
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
 
 #### Training 7 - Yanu 5
 
@@ -695,10 +692,10 @@ behaviors:
 
 ![GraphYanu5](GraphYanu5.png)
 
-****conclusie****: Zonder muren. Episode word opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op. 
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op. 
 
 ### Conclusie
-We hebben via machine learning een hond getraint om een bal te halen en terug te brengen.
+We hebben via machine learning een hond getraind om een bal te halen en terug te brengen naar de speler.
 
 Het trainen bracht meerdere onverwachte problemen met zich mee. Na wat bugfixes hebben we de juiste combinatie van rewards gevonden. Dit zijnde training 7. Dit is een training zonder muren.
 
