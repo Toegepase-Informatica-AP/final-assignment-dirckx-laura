@@ -1384,6 +1384,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8819541712009000808, guid: 37957a68357d8614f9fec6b9f9d7ce34,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37957a68357d8614f9fec6b9f9d7ce34, type: 3}
 --- !u!1 &1575099172
@@ -2060,7 +2065,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877060844}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.58, z: 20.01}
+  m_LocalPosition: {x: 0, y: 1.97, z: 20.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1234008087}
@@ -2124,7 +2129,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 5
+  m_Height: 5.18
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -2144,7 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputSource: 4
-  speed: 2.14
+  speed: 3.1
   gravity: -9.81
   groundLayer:
     serializedVersion: 2
@@ -2181,7 +2186,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: f7e827463c2a1c845b85f6ffb89cf314,
+      objectReference: {fileID: 5022602860645237092, guid: 607355b94e15a0f4a99168fffa873760,
         type: 3}
     - target: {fileID: 1396547423230684495, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
@@ -2251,7 +2256,7 @@ PrefabInstance:
     - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
       propertyPath: m_RayLength
-      value: 33
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}

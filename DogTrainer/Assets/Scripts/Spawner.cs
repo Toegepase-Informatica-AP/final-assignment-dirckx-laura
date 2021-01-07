@@ -23,7 +23,6 @@ public class Spawner : MonoBehaviour
 
     public void OnEnable()
     {
-
         tennisballContainer = transform.Find("TennisContainer").gameObject;
         dog = transform.GetComponentInChildren<Dog>();
     }

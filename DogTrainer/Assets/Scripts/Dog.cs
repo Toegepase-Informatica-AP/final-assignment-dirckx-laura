@@ -18,7 +18,7 @@ public class Dog : Agent
 
     public void Update()
     {
-        fell();
+        // fell();
     }
 
     public override void Initialize()
@@ -26,9 +26,7 @@ public class Dog : Agent
         base.Initialize();
         body = GetComponent<Rigidbody>();
         spawner = GetComponentInParent<Spawner>();
-        transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
-        body.angularVelocity = Vector3.zero;
-        body.velocity = Vector3.zero;
+        
 
     }
 
@@ -37,6 +35,9 @@ public class Dog : Agent
         spawner.ClearEnvironment();
         spawner.SpawnBall();
         tBall.SetActive(false);
+        transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
+        body.angularVelocity = Vector3.zero;
+        body.velocity = Vector3.zero;
     }
     public override void Heuristic(float[] actionsOut)
     {
@@ -113,16 +114,15 @@ public class Dog : Agent
 
             //add reward for returning ball to player
             AddReward(1f);
-
-
             EndEpisode();
         }
-        else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
-        {
 
-            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+        if (collision.gameObject.CompareTag("Player") && !ballInMouth)
+        {
+            Debug.Log("get called");
             //ballInMouth = false;
-            AddReward(-0.05f);
+            AddReward(-0.1f);
+
         }
 
     }
