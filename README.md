@@ -15,6 +15,7 @@
 
 * [Inleiding](#inleiding)
 * [Samenvatting](#samenvatting)
+* [Installatie](#installatie)
 * [One-pager](#one-pager)
 * [Verloop van het spel](#verloop-van-het-spel)
 * [Methoden](#methoden)
@@ -28,6 +29,7 @@
 	* [Training 4 - Yanu 2](#training-4---yanu-2)
 	* [Training 5 - Yanu 3](#training-5---yanu-3)
 	* [Training 6 - Yanu 4](#training-6---yanu-4)
+	* [Training 7 - Yanu 5](#training-7---yanu-5)
 * [Conclusie](#conclusie)
 * [Bronvermelding](#bronvermelding)
 
@@ -638,9 +640,7 @@ behaviors:
 ![GraphYanu4](GraphYanu4.png)
 
 ****conclusie****: Zonder muren. Episode word opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
-final
-### Conclusie
-We gebruiken het brein van training 1, zonder muren.
+final.
 
 #### Training 7 - Yanu 5
 
@@ -692,6 +692,8 @@ behaviors:
 | Hond pakt bal    | +0.5f             |
 | Hond staat stil       | -0.001f           |
 | Hond valt van de map  | -1f           |
+
+![GraphYanu5](GraphYanu5.png)
 
 ****conclusie****: Zonder muren. Episode word opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op. 
 
