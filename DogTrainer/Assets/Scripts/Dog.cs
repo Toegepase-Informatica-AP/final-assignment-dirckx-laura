@@ -119,7 +119,7 @@ public class Dog : Agent
 
         if (collision.gameObject.CompareTag("Player") && !ballInMouth)
         {
-            Debug.Log("get called");
+            
             //ballInMouth = false;
             AddReward(-0.1f);
 
