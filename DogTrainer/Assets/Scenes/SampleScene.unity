@@ -2186,7 +2186,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 607355b94e15a0f4a99168fffa873760,
+      objectReference: {fileID: 5022602860645237092, guid: f7e827463c2a1c845b85f6ffb89cf314,
         type: 3}
     - target: {fileID: 1396547423230684495, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
@@ -2251,7 +2251,7 @@ PrefabInstance:
     - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
       propertyPath: m_EndVerticalOffset
-      value: 0.7
+      value: -0.86
       objectReference: {fileID: 0}
     - target: {fileID: 1826774912484004257, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
