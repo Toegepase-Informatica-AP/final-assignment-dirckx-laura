@@ -691,7 +691,7 @@ behaviors:
 | Hond staat stil       | -0.001f           |
 | Hond valt van de map  | -1f           |
 
-![GraphYanu5](FinalgraphWitse.png)
+![FinalGraphWitse](FinalgraphWitse.png)
 
 ****conclusie****: Deze training is zonder muren. De Episode wordt opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op.
 
