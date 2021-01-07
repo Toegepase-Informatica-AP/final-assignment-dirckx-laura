@@ -178,6 +178,7 @@ public class Dog : Agent
         base.Initialize();
         body = GetComponent<Rigidbody>();
         spawner = GetComponentInParent<Spawner>();
+        ballInMouth = false;
         transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
         body.angularVelocity = Vector3.zero;
         body.velocity = Vector3.zero;
@@ -639,7 +640,7 @@ behaviors:
 
 ****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
 
-#### Training 7 - Yanu 5
+#### Training 7 - Witse Final
 
 ****yaml parameters****:
 ```cs
@@ -684,15 +685,15 @@ behaviors:
 
 | Actie         | Reward |
 |--------------|-----------------|
-| Hond gaat naar speler zonder bal         | -0.1f      |
+| Hond gaat naar speler zonder bal         | -0.5f      |
 | Hond gaat naar speler met bal  | +1.0f          |
 | Hond pakt bal    | +0.5f             |
 | Hond staat stil       | -0.001f           |
 | Hond valt van de map  | -1f           |
 
-![GraphYanu5](GraphYanu5.png)
+![GraphYanu5](FinalgraphWitse.png)
 
-****conclusie****: Zonder muren. Episode wordt opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op. 
+****conclusie****: Deze training is zonder muren. De Episode wordt opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op.
 
 ### Conclusie
 We hebben via machine learning een hond getraind om een bal te halen en terug te brengen naar de speler.
