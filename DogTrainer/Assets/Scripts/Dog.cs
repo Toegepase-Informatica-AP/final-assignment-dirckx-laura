@@ -13,7 +13,7 @@ public class Dog : Agent
     public float rotationSpeed = 350;
     bool ballInMouth;
     public GameObject tBall;
-    public GameObject player;
+    //public GameObject player;
 
 
     public void Update()
@@ -120,7 +120,7 @@ public class Dog : Agent
         else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
         {
 
-            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+            //Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
             //ballInMouth = false;
             AddReward(-0.05f);
         }
