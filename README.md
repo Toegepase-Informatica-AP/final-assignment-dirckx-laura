@@ -29,7 +29,7 @@
       - [Training 4 - Yanu 2](#training-4---yanu-2)
       - [Training 5 - Yanu 3](#training-5---yanu-3)
       - [Training 6 - Yanu 4](#training-6---yanu-4)
-      - [Training 6 - Yanu 4](#training-7---witse-final)
+      - [Training 7 - Witse Final](#training-7---witse-final)
     - [Conclusie](#conclusie)
     - [Bronvermelding](#bronvermelding)
 
