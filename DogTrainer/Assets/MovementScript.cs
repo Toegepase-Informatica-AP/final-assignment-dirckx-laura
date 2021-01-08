@@ -11,7 +11,7 @@ public class MovementScript : MonoBehaviour
     public float speed = 1;
     public float gravity = -9.81f;
     public LayerMask groundLayer;
-    public float additionalHeight = 2.5f;
+    private float additionalHeight = 2.5f;
     private float fallingSpeed;
     private XRRig rig;
     private CharacterController character;

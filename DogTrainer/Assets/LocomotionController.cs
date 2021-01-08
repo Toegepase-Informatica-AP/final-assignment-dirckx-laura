@@ -6,14 +6,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class LocomotionController : MonoBehaviour
 {
     public XRController leftteleportRay;
-    public XRController rightteleportRay;
     public InputHelpers.Button teleportActivationButton;
     public float activationThreshold = 0.1f;
 
     public XRRayInteractor leftInteractorRay;
 
     public bool EnableLeftTeleport { get; set; } = true;
-    public bool EnableRightTeleport { get; set; } = true;
     // Start is called before the first frame update
     void Start()
     {
