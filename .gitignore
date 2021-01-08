@@ -35,7 +35,6 @@
 /com.unity.ml-agents/sysinfo.txt
 
 # Builds
-*.apk
 *.unitypackage
 *.app
 *.exe
