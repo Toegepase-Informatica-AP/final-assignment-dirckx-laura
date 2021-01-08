@@ -12,13 +12,13 @@ public class StartGameScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         loadSceneBtn.onClick.AddListener(ChangeScene);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
         {
             SceneManager.LoadScene(1);
