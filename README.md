@@ -11,27 +11,29 @@
 
 ### Inhoudstafel
 
-- [DogTrainer - VR Experience](#dogtrainer---vr-experience)
-    - [Inhoudstafel](#inhoudstafel)
-    - [Inleiding](#inleiding)
-    - [Samenvatting](#samenvatting)
-    - [Installatie](#installatie)
-    - [One-pager](#one-pager)
-    - [Verloop van het spel](#verloop-van-het-spel)
-    - [Methoden](#methoden)
-      - [Park](#park)
-      - [BalSpawner](#balspawner)
-      - [DogAgent](#dogagent)
-    - [Trainen](#trainen)
-      - [Training 1 - Witse](#training-1---witse)
-      - [Training 2 - Wrun_9_WWalls](#training-2---wrun_9_wwalls)
-      - [Training 3 - Yanu 1](#training-3---yanu-1)
-      - [Training 4 - Yanu 2](#training-4---yanu-2)
-      - [Training 5 - Yanu 3](#training-5---yanu-3)
-      - [Training 6 - Yanu 4](#training-6---yanu-4)
-      - [Training 7 - Witse Final](#training-7---witse-final)
-    - [Conclusie](#conclusie)
-    - [Bronvermelding](#bronvermelding)
+<!-- Start Document Outline -->
+
+* [Inleiding](#inleiding)
+* [Samenvatting](#samenvatting)
+* [Installatie](#installatie)
+* [One-pager](#one-pager)
+* [Verloop van het spel](#verloop-van-het-spel)
+* [Methoden](#methoden)
+	* [Park](#park)
+	* [BalSpawner](#balspawner)
+	* [DogAgent](#dogagent)
+* [Trainen](#trainen)
+	* [Training 1 - Witse](#training-1---witse)
+	* [Training 2 - Wrun_9_WWalls](#training-2---wrun_9_wwalls)
+	* [Training 3 - Yanu 1](#training-3---yanu-1)
+	* [Training 4 - Yanu 2](#training-4---yanu-2)
+	* [Training 5 - Yanu 3](#training-5---yanu-3)
+	* [Training 6 - Yanu 4](#training-6---yanu-4)
+	* [Training 7 - Witse Final](#training-7---witse-final)
+* [Conclusie](#conclusie)
+* [Bronvermelding](#bronvermelding)
+
+<!-- End Document Outline -->
 
 
 ### Inleiding
@@ -97,18 +99,17 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-       
-            if (tennisball.transform.position.y < 0)
-            {
-                ClearEnvironment();
-                SpawnBall();
-            }
-        
+
+        if (tennisball.transform.position.y < 0)
+        {
+            ClearEnvironment();
+            SpawnBall();
+        }
+
     }
 
     public void OnEnable()
     {
-
         tennisballContainer = transform.Find("TennisContainer").gameObject;
         dog = transform.GetComponentInChildren<Dog>();
     }
@@ -130,11 +131,11 @@ public class Spawner : MonoBehaviour
     {
         GameObject ball = Instantiate(tennisball.gameObject);
         ball.transform.SetParent(tennisballContainer.transform);
-        
-        ball.transform.localPosition = new Vector3(0.1804f, -0.0674f ,-00028f);
+
+        ball.transform.localPosition = new Vector3(0.1804f, -0.0674f, -0.0028f);
     }
 
-    
+
 }
 ```
 
@@ -170,7 +171,7 @@ public class Dog : Agent
 
     public void Update()
     {
-        fell();
+        // fell();
     }
 
     public override void Initialize()
@@ -178,10 +179,7 @@ public class Dog : Agent
         base.Initialize();
         body = GetComponent<Rigidbody>();
         spawner = GetComponentInParent<Spawner>();
-        ballInMouth = false;
-        transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
-        body.angularVelocity = Vector3.zero;
-        body.velocity = Vector3.zero;
+        
 
     }
 
@@ -190,6 +188,10 @@ public class Dog : Agent
         spawner.ClearEnvironment();
         spawner.SpawnBall();
         tBall.SetActive(false);
+        ballInMouth = false;
+        transform.localPosition = new Vector3(1.733055f, 1.3f, -17.78904f);
+        body.angularVelocity = Vector3.zero;
+        body.velocity = Vector3.zero;
     }
     public override void Heuristic(float[] actionsOut)
     {
@@ -222,8 +224,7 @@ public class Dog : Agent
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {      
-        //bij stilstaan afstraffen
-        if (vectorAction[0] == 0 )
+        if (vectorAction[0] == 0)
         {
 
             AddReward(-0.001f);
@@ -243,62 +244,6 @@ public class Dog : Agent
         }
 
     }
-
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("tennisball") && !ballInMouth)
-        {
-            //load material of dog with ball in mouth
-            ballInMouth = true;
-            tBall.SetActive(true);
-            spawner.ClearEnvironment();
-            // add reward for getting ball
-            AddReward(0.5f);
-
-        }
-
-        if (collision.gameObject.CompareTag("Player") && ballInMouth)
-        {
-            
-            ballInMouth = false;
-
-            //add reward for returning ball to player
-            AddReward(1f);
-
-
-            EndEpisode();
-        }
-        else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
-        {
-
-            //ballInMouth = false;
-            AddReward(-0.5f);
-        }
-
-    }
-
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        sensor.AddObservation(ballInMouth);
-
-
-    }
-
-    public void fell()
-    {
-        if (GameObject.Find("Dog").transform.position.y < 0)
-        {
-            
-            AddReward(-1f);
-            ballInMouth = false;
-            EndEpisode();
-        }
-        
-        
-    }
-
-}
 ```
 
 ### Trainen
@@ -473,7 +418,7 @@ behaviors:
 
 ![GraphYanu1](GraphYanu1.png)
 
-****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.01 getraind. Ongeveer dezelfde resultaten.
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als de hond van het veld valt. Met curiousity strength 0.01 getraind. Ongeveer dezelfde resultaten.
 
 #### Training 4 - Yanu 2
 
@@ -527,7 +472,7 @@ behaviors:
 
 ![GraphYanu2](GraphYanu2.png)
 
-****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02 getraind. Niet erg veel verschil, gaat wel iets sneller dan de vorige.
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als de hond van het veld valt. Met curiousity strength 0.02 getraind. Niet erg veel verschil, gaat wel iets sneller dan de vorige.
 
 #### Training 5 - Yanu 3
 
@@ -581,7 +526,7 @@ behaviors:
 
 ![GraphYanu3](GraphYanu3.png)
 
-****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.03. Niet erg veel verschil. 
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als de hond van het veld valt. Met curiousity strength 0.03. Niet erg veel verschil. 
 
 #### Training 6 - Yanu 4
 
@@ -636,7 +581,7 @@ behaviors:
 
 ![GraphYanu4](GraphYanu4.png)
 
-****conclusie****: Zonder muren. Episode wordt opnieuw gestart als agent van het veld valt. Met curiousity strength 0.02.
+****conclusie****: Zonder muren. Episode wordt opnieuw gestart als de hond van het veld valt. Met curiousity strength 0.02.
 
 #### Training 7 - Witse Final
 
@@ -691,7 +636,7 @@ behaviors:
 
 ![FinalGraphWitse](FinalgraphWitse.png)
 
-****conclusie****: Deze training is zonder muren. De Episode wordt opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op.
+****conclusie****: Deze training is zonder muren. De episode wordt opnieuw gestart als de hond de bal terugbrengt bij de speler. Na een bug in het implementeren van het rewardsysteem gevonden te hebben, is er nog een finale training gebeurd. Deze leverde veel betere resultaten op.
 
 ### Conclusie
 We hebben via machine learning een hond getraind om een bal te halen en terug te brengen naar de speler.
