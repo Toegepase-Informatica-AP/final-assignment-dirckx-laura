@@ -3276,6 +3276,11 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 6151608039638716722, guid: 25e344ab284e1bf43abf2870e79725fe,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 8529060600958525790, guid: 25e344ab284e1bf43abf2870e79725fe,
         type: 3}
       propertyPath: MaxStep
