@@ -222,8 +222,8 @@ public class Dog : Agent
     //code van Meneer Dhaese bij Obelix.cs - MLAgents - VR Experience github
     public override void OnActionReceived(float[] vectorAction)
     {      
-        //bij stilstaan afstraffen, nog niet zeker of dit nodig is
-        if (vectorAction[0] == 0 & vectorAction[1] == 0)
+        //bij stilstaan afstraffen
+        if (vectorAction[0] == 0 )
         {
 
             AddReward(-0.001f);
@@ -250,7 +250,6 @@ public class Dog : Agent
         if (collision.gameObject.CompareTag("tennisball") && !ballInMouth)
         {
             //load material of dog with ball in mouth
-            // collision.gameObject.GetComponent<Renderer>().material = 
             ballInMouth = true;
             tBall.SetActive(true);
             spawner.ClearEnvironment();
@@ -273,9 +272,8 @@ public class Dog : Agent
         else if (collision.gameObject.CompareTag("Player") && !ballInMouth)
         {
 
-            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
             //ballInMouth = false;
-            AddReward(-0.05f);
+            AddReward(-0.5f);
         }
 
     }
