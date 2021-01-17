@@ -9,6 +9,8 @@ public class StartGameScript : MonoBehaviour
 
     public string sceneName;
     public Button loadSceneBtn;
+
+    private Spawner spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class StartGameScript : MonoBehaviour
      void ChangeScene() 
     {
         SceneManager.LoadSceneAsync(sceneName);
+        spawner.ClearEnvironment();
     
     }
 

@@ -86,7 +86,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_ThrowVelocityScale: 1
+  m_ThrowVelocityScale: 2.13
   m_ThrowAngularVelocityScale: 0.25
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
@@ -170,17 +170,17 @@ PrefabInstance:
     - target: {fileID: 1695887684418216208, guid: 49920d85f1b70fa4a9578256ad9a69c4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1695887684418216208, guid: 49920d85f1b70fa4a9578256ad9a69c4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1695887684418216208, guid: 49920d85f1b70fa4a9578256ad9a69c4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 3023690743847360356, guid: 49920d85f1b70fa4a9578256ad9a69c4,
         type: 3}
